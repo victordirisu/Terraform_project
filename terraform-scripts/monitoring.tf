@@ -1,7 +1,3 @@
-provider "azurerm" {
-  features = {}
-}
-
 resource "azurerm_monitor_diagnostic_setting" "aks_diagnostic" {
   name               = "aksdiagnostic"
   target_resource_id = azurerm_kubernetes_cluster.aks.id
