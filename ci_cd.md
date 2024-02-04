@@ -1,3 +1,13 @@
+# Overview
+The project is focused on implementing CI/CD pipelines using GitHub Actions for a microservices architecture deployed on an Azure Kubernetes Service (AKS) cluster.
+
+## Set up GitHub repositories for each microservice with appropriate branching strategies
+### Objectives
+-  Develop GitHub Actions workflows for:
+- Running Terraform scripts to provision and update the infrastructure as needed.
+- Continuous integration and deployment of each service to the AKS cluster.
+- Include steps for code linting, unit testing, building Docker images, and deploying them to AKS.
+### Solutions
 - Create a separate GitHub repository for each microservice.
 - Organize the Terraform files in a dedicated folder.
 - Create separate .tf files for each resource
