@@ -28,8 +28,21 @@ security.
 - Enhance the Terraform script (main.tf) by incorporating variables for better parametrization and outputs for capturing essential information that might be useful for other parts of your infrastructure or external systems.
 <img width="484" alt="Screenshot 2024-02-04 at 08 44 21" src="https://github.com/victordirisu/Terraform_project/assets/147115134/e01a0c8f-8721-4b0a-84a9-488330e5b0b9">
 
-- Initialize the Terraform project, by downloading any necessary plugins and setting up the working directory using the "terraform init" command and also apply the configurations using the "terraform apply" command and also respond "Yes" to confirm the changes.
-<img width="207" alt="Screenshot 2024-02-04 at 08 45 02" src="https://github.com/victordirisu/Terraform_project/assets/147115134/2f189eb3-914b-4c4d-afb7-72eff51e196e">
+- Initialize the Terraform project, by downloading any necessary plugins and setting up the working directory using the "terraform init" command.
+<img width="253" alt="Screenshot 2024-02-04 at 10 26 46" src="https://github.com/victordirisu/Terraform_project/assets/147115134/b377a105-34c7-429b-ab2c-ff683f01d92c">
+
+-  Use the "terraform validate" command to check the syntax and validity of Terraform configuration files.
+<img width="254" alt="Screenshot 2024-02-04 at 10 27 39" src="https://github.com/victordirisu/Terraform_project/assets/147115134/24f01d01-5799-4b15-b648-7fa080af0509">
+
+- Use the "terraform fmt" command to automatically format Terraform configuration files according to a standard style.
+<img width="221" alt="Screenshot 2024-02-04 at 10 29 11" src="https://github.com/victordirisu/Terraform_project/assets/147115134/7e3bd936-48aa-4fc3-9ecb-31dc6c3ce4f1">
+
+- Use the "terraform plan" command to preview the changes that Terraform will make to the infrastructure based on the defined configuration.
+<img width="233" alt="Screenshot 2024-02-04 at 10 29 53" src="https://github.com/victordirisu/Terraform_project/assets/147115134/64c29ea7-ab2c-4dfd-bb84-9d176b2d3d48">
+
+- Apply the configurations using the "terraform apply" command and also respond "Yes" to confirm the changes.
+<img width="255" alt="Screenshot 2024-02-04 at 10 35 32" src="https://github.com/victordirisu/Terraform_project/assets/147115134/8ddc7619-7681-4a5c-9d90-81ebc0d908a9">
+
 
 - After testing, clean up resources to avoid unnecessary costs using "terraform destroy" command.
 <img width="272" alt="Screenshot 2024-02-04 at 08 45 54" src="https://github.com/victordirisu/Terraform_project/assets/147115134/7e15c5cd-da73-4398-9f88-45f0307db7a9">
