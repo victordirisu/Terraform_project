@@ -45,6 +45,3 @@ resource "azurerm_subnet" "aks_subnet" {
   address_prefixes     = ["10.0.1.0/18"]
 }
 
-output "aks_cluster_id" {
-  value = azurerm_kubernetes_cluster.aks_cluster.id
-}
