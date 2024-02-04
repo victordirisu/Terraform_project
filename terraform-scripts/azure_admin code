@@ -1,0 +1,103 @@
+<!-- define variables to make the terraform configuration more flexible and reusable -->
+<!-- written in a variable.tf file -->
+
+variable "azure_resource_group" {
+  description = "Name for the azure resource group for project"
+}
+
+variable "azure_cluster" {
+  description = "Name of the AKS cluster for project"
+}
+
+<!-- define variables related to Role-Based Access Control(RBAC) -->
+
+variable "rbac_role" {
+  description = "Name of the custom RBAC role definition"
+}
+
+variable "user_principal_id" {
+  description = "Principal ID of the user or service principal to assign the role"
+}
+
+<!-- create a monitoring.tf file to automate the configuration of the monitoring settings and to establish a Log Analytics workspace -->
+
+provider "azurerm" {
+  features = {}
+}
+
+resource "azurerm_monitor_diagnostic_setting" "aks_diagnostic" {
+  name               = "aksdiagnostic"
+  target_resource_id = azurerm_kubernetes_cluster.aks.id
+
+  log {
+    category = "kube-apiserver"
+    enabled  = true
+    retention_policy {
+      enabled = false
+    }
+  }
+}
+
+resource "azurerm_log_analytics_workspace" "aks_logs" {
+  name                = "akslogs"
+  location            = azurerm_kubernetes_cluster.aks.location
+  resource_group_name = azurerm_kubernetes_cluster.aks.azure_resource_group
+}
+
+resource "azurerm_monitor_log_profile" "aks_log_profile" {
+  name                = "akslogprofile"
+  storage_account_ids = []
+  workspace_id       = azurerm_log_analytics_workspace.aks_logs.id
+}
+
+<!-- to define and automate the configuration of alerts to notify when specific metrics meet predefined threshold in the alerts.tf file -->
+
+resource "azurerm_monitor_metric_alert" "high_cpu_alert" {
+  name                = "HighCPUAlert"
+  resource_group_name = var.azure_resource_group
+  scopes              = [azurerm_kubernetes_cluster.aks.id]
+
+  criteria {
+    metric_namespace = "Microsoft.ContainerService"
+    metric_name      = "cpuUsage"
+    aggregation      = "Average"
+    operator         = "GreaterThan"
+    threshold        = 90
+  }
+
+  actions {
+    action_group_id = "action-group-id" 
+  }
+}
+
+<!-- create an rbac.tf file to define and assigne a custom RBAC role using terraform -->
+
+resource "azurerm_role_definition" "custom_role" {
+  name        = var.rbacrole
+  description = "Custom RBAC role for managing resources"
+  permissions = [
+    {
+      actions     = ["*"]
+      not_actions = []
+      data_actions = ["Microsoft.Resources/subscriptions/resourceGroups/*"]
+    }
+  ]
+}
+
+resource "azurerm_role_assignment" "custom_role_assignment" {
+  principal_id           = var.user_principal_id
+  role_definition_name   = azurerm_role_definition.custom_role.name
+  scope                  = "/subscriptions/<subscription_id>"  # Replace with your subscription ID
+}
+
+<-- initialize and apply configurations to execute planned changes -->
+
+terraform init
+terraform validate
+terraform fmt
+terraform plan
+terraform apply
+
+
+
+
