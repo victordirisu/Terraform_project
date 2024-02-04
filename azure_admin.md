@@ -1,3 +1,12 @@
+# Overview
+This project leverages Terraform to automate the setup of monitoring, logging, and alerts for Kubernetes services on Azure using Azure Monitor and Log Analytics. Additionally, it implements Role-Based Access Control (RBAC) for Azure resources, ensuring secure access management.
+## Azure Administration with Terraform:
+### Objectives
+- Use Terraform to set up monitoring, logging, and alerts for the Kubernetes services using
+Azure Monitor and Log Analytics.
+- Implement role-based access control (RBAC) for Azure resources through Terraform configurations.
+
+### Solutions
 - First, create a "variable.tf" file to store the variables
 
 - Define variables to make the terraform configuration more flexible and reusable (By parameterizing key values, such as resource group names, AKS cluster names, or alert thresholds, the Terraform scripts become adaptable to different environments or scenarios).
