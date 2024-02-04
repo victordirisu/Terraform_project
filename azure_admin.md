@@ -16,7 +16,8 @@ Azure Monitor and Log Analytics.
 <img width="805" alt="Screenshot 2024-02-04 at 09 55 59" src="https://github.com/victordirisu/Terraform_project/assets/147115134/6f619efd-58af-4837-98aa-579a34746255">
 
 - Create an "alert.tf" file to define and automate the configuration of alerts to notify administrators or automated systems when specific metrics or conditions in the AKS cluster meet predefined thresholds.
-<img width="759" alt="Screenshot 2024-02-04 at 10 03 40" src="https://github.com/victordirisu/Terraform_project/assets/147115134/3bf96497-ac71-424b-8048-a3b90569bee3">
+<img width="565" alt="Screenshot 2024-02-04 at 14 40 21" src="https://github.com/victordirisu/Terraform_project/assets/147115134/84c96f8f-b39e-413a-90c0-af9680dc148e">
+
 
 - Extend the "variables.tf" file to define variables related to Role-Based Access Control (RBAC) for Azure resources. RBAC variables will include information such as the custom role definition name and the principal ID of the user or service principal to assign the role.
 <img width="670" alt="Screenshot 2024-02-04 at 10 10 45" src="https://github.com/victordirisu/Terraform_project/assets/147115134/eea0efa7-1ea4-49ed-b360-482579d15dd9">
