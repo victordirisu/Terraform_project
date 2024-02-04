@@ -1,2 +1,0 @@
-<!-- ensure authentication using the "az login" on powershell -->
-az login
