@@ -29,4 +29,4 @@
 - Use the "terraform apply" to apply the changes defined in the Terraform configuration to the actual infrastructure.
 <img width="219" alt="Screenshot 2024-02-04 at 10 30 53" src="https://github.com/victordirisu/Terraform_project/assets/147115134/42bd1e2d-5eb7-4dea-8e4a-14f8b66ad0c5">
 
-
+- Review changes and confirm execution to ensure that the planned changes align with expectations and won't have unintended consequences on infrastructure.
